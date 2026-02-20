@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Buddy Offline MVP</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="introScreen" class="intro-screen">
+      <p id="introText" class="intro-text"></p>
+    </div>
+    <button id="sidebarToggle" class="sidebar-toggle-btn" type="button" aria-label="Toggle sidebar">☰</button>
+
+    <div class="app-shell">
+      <aside class="panel left-panel">
+        <h1>Study Buddy</h1>
+        <p class="muted">Offline Study Assistant</p>
+
+        <div class="meta-box">
+          <div class="sidebar-row">
+            <span class="sidebar-icon" aria-hidden="true">+</span>
+            <label for="docUpload" class="upload-label">Upload Study Document</label>
+          </div>
+          <input id="docUpload" type="file" accept=".pdf,.txt,.odt,.docx" multiple />
+          <p id="fileStatus" class="status">No document selected.</p>
+        </div>
+
+        <div class="meta-box">
+          <div class="sidebar-row">
+            <span class="sidebar-icon" aria-hidden="true">i</span>
+            <h2>Session</h2>
+          </div>
+          <p><span class="muted">Document:</span> <span id="docName">-</span></p>
+          <p><span class="muted">Messages:</span> <span id="msgCount">0</span></p>
+        </div>
+
+        <div class="meta-box">
+          <div class="sidebar-row">
+            <span class="sidebar-icon" aria-hidden="true">f</span>
+            <h2>Uploaded Files</h2>
+          </div>
+          <div id="docList" class="doc-list muted">No files uploaded yet.</div>
+        </div>
+
+        <div class="meta-box">
+          <div class="sidebar-row">
+            <span class="sidebar-icon" aria-hidden="true">~</span>
+            <h2>Indexing Now</h2>
+          </div>
+          <div id="queueList" class="queue-list muted">Nothing in queue.</div>
+        </div>
+
+        <div class="meta-box">
+          <div class="sidebar-row">
+            <span class="sidebar-icon" aria-hidden="true">*</span>
+            <h2>Top Sources</h2>
+          </div>
+          <div id="sourceRefs" class="sources-list muted">No sources yet.</div>
+        </div>
+
+        <button id="takeTestBtn" class="primary">Take Test</button>
+      </aside>
+
+      <main class="panel main-panel">
+        <section id="homeView" class="home-view active">
+          <div class="hero">
+            <h2 class="home-heading">Good to see you.</h2>
+            <p class="muted">Your offline study assistant for summaries, explanations, and citations.</p>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <p class="title">Writing</p>
+              <p>Draft study notes</p>
+            </div>
+            <div class="card">
+              <p class="title">Programming</p>
+              <p>Explain code snippets</p>
+            </div>
+            <div class="card">
+              <p class="title">Concepts</p>
+              <p>Break down ideas</p>
+            </div>
+            <div class="card">
+              <p class="title">Education</p>
+              <p>Quiz yourself</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="chatView" class="view active">
+          <header class="section-head">
+            <h2>Chat</h2>
+            <p class="muted">Ask questions about your uploaded document.</p>
+          </header>
+
+          <div id="chatBox" class="chat-box" aria-live="polite"></div>
+
+          <form id="chatForm" class="chat-input-row">
+            <input
+              id="chatInput"
+              type="text"
+              placeholder="Summarize this chapter..."
+              autocomplete="off"
+              required
+            />
+            <button id="attachBtn" type="button" class="icon-btn" title="Attach files">i</button>
+            <button id="sendBtn" type="submit" class="primary">Send</button>
+          </form>
+        </section>
+
+        <section id="quizView" class="view">
+          <header class="section-head">
+            <h2>Practice Test</h2>
+            <p class="muted">Generated from uploaded doc + chat context (mock for now).</p>
+          </header>
+
+          <div id="quizContainer" class="quiz-container"></div>
+
+          <div class="quiz-actions">
+            <button id="submitQuizBtn" class="primary">Submit Test</button>
+            <button id="backToChatBtn" class="secondary">Back to Chat</button>
+          </div>
+
+          <p id="quizResult" class="status"></p>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

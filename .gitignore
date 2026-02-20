@@ -1,0 +1,35 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyt
+
+# Virtual environment
+ain/
+
+# Local data/model artifacts
+data/
+*.db
+*.sqlite3
+*.log
+*.cache
+*.bin
+*.onnx
+*.pt
+*.safetensors
+
+# Ollama / Gemma downloads
+models/
+
+# OS files
+.DS_Store
+*.swp
+
+# Frontend dependencies
+frontend/node_modules/
+
+# Environment configs
+.env
+*.env
